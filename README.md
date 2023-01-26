@@ -19,3 +19,12 @@ References
 - [JavaScript For Loop](https://www.w3schools.com/js/js_loop_for.asp)
 - [JavaScript Arrays](https://www.w3schools.com/js/js_arrays.asp)
 - [Web colors](https://en.wikipedia.org/wiki/Web_colors)
+
+### 3 - Random Quote Generator
+
+Repl - [↗️](https://replit.com/@dotaadarsh/Random-Quotes-Generator?v=1)
+
+References
+- [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
+- [CSS :hover Selector](https://www.w3schools.com/cssref/sel_hover.php)
+- [Font Awesome](https://fontawesome.com/)
