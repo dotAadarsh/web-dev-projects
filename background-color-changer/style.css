@@ -1,0 +1,25 @@
+body {
+    background: #18122B;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button {
+    background-color: #393053;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+button:hover {
+    background-color: #635985;
+}

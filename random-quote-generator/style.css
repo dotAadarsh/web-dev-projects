@@ -1,0 +1,30 @@
+.max-height {
+  min-height: 100vh;
+}
+
+body {
+  background: #18122B;
+}
+
+.quote-container {
+  background: #ededed;
+}
+
+#generate-btn {
+  color: white;
+  background-color: #3a3d4b;
+  border-color: #3a3d4b;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+
+#generate-btn:hover {
+  background: #4b4e6d;
+  border-color: #4b4e6d;
+  color: #000000;
+}
+
+span {
+  color: #18122B;
+}
