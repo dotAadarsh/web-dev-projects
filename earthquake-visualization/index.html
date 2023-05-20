@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Earth Quake Visualization</title>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/themes/dark/main.css" />
+    <script src="https://js.arcgis.com/4.12/"></script>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/GeoJSONLayer"
+        ], (Map, MapView, GeoJSONLayer) => {
+            const renderer = {
+                type: "simple",
+                field: "mag",
+                symbol: {
+                    type: "simple-marker",
+                    color: "red",
+                    outline: {
+                        color: "white"
+                    }
+                },
+                visualVariables: [
+                    {
+                        type: "size",
+                        field: "mag",
+                        stops: [
+                            {
+                                value: 2.5,
+                                size: "4px"
+                            },
+                            {
+                                value: 8,
+                                size: "40px"
+                            }
+                        ]
+                    },
+                    {
+                        type: "color",
+                        field: "mag",
+                        stops: [
+                            {
+                                value: 2.5,
+                                color: "red"
+                            },
+                            {
+                                value: 8,
+                                color: "darkred"
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            const popupTemplate = {
+                title: "Earthquake Info",
+                content: "Magnitude {map} {type} hit {place} on {time}",
+                fieldInfos: [
+                    {
+                        fieldName: "time",
+                        format: {
+                            dateFormat: "short-date-short-time"
+                        }
+                    }
+                ]
+            };
+
+            const geoJSONLayer = new GeoJSONLayer({
+                url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_month.geojson",
+                copyright: "USGS Earthquakes",
+                renderer: renderer,
+                popupTemplate: popupTemplate
+            });
+
+            let map = new Map({
+                basemap: "dark-gray",
+                basemap: "satellite",
+                layers: [geoJSONLayer]
+            });
+
+            let view = new MapView({
+                container: "viewDiv",
+                map: map,
+                zoom: 3,
+                center: [-168, 60]
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+</body>
+
+</html>
